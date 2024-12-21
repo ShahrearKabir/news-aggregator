@@ -26,9 +26,6 @@ export class ArticlesService {
         // const namedEntities = await this.topicExtractor.extractEntities(article.description);
         const namedEntities = await this.topicExtractor.extractEntitiesAWS(article.description);
 
-        // console.log('topics:::', topics);
-        console.log('namedEntities:::', namedEntities);
-
         const newArticle = new this.articleModel({ ...article, topics, namedEntities });
         await newArticle.save();
     }

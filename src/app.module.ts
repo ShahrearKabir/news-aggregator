@@ -8,7 +8,6 @@ import { SchedulerModule } from './scheduler/scheduler.module';
 @Module({
   imports: [
     MongooseModule.forRoot(`${process.env.MONGO_DB_URL}`),
-    // ScheduleModule.forRoot(),
     FeedsModule,
     ArticlesModule,
     SchedulerModule

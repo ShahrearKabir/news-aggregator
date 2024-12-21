@@ -3,12 +3,12 @@ import { FeedsService } from './feeds.service';
 
 @Controller('feeds')
 export class FeedsController {
-  constructor(private readonly feedsService: FeedsService) {}
+  constructor(private readonly feedsService: FeedsService) { }
 
-  private feeds: string[] = [
-    'https://rss.cnn.com/rss/cnn_topstories.rss',
-    'https://feeds.bbci.co.uk/news/rss.xml',
-  ]; // Default feeds (can be moved to a service)
+  // private feeds: string[] = [
+  //   'https://rss.cnn.com/rss/cnn_topstories.rss',
+  //   'https://feeds.bbci.co.uk/news/rss.xml',
+  // ]; // Default feeds (can be moved to a service)
 
   @Get()
   async getFeeds() {
@@ -17,17 +17,10 @@ export class FeedsController {
 
   @Post()
   async addFeed(@Body('url') url: string) {
-    // if (!url || !url.startsWith('http')) {
-    //   throw new HttpException('Invalid RSS feed URL', HttpStatus.BAD_REQUEST);
-    // }
+    if (!url || !url.startsWith('http')) {
+      throw new HttpException('Invalid RSS feed URL', HttpStatus.BAD_REQUEST);
+    }
 
-    // if (this.feeds.includes(url)) {
-    //   throw new HttpException('Feed URL already exists', HttpStatus.CONFLICT);
-    // }
-
-    // this.feeds.push(url);
-    console.log('url:::', url);
-    
     return this.feedsService.addFeed(url);
   }
 

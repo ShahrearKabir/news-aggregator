@@ -89,7 +89,7 @@ A backend application built using **NestJS** and **MongoDB** that functions as a
 - **POST /feeds**: Add a new RSS feed URL.
   ```json
   {
-    "url": "https://rss.cnn.com/rss/cnn_topstories.rss"
+    "url": "https://feeds.bbci.co.uk/news/rss.xml"
   }
   ```
 - **GET /feeds**: Retrieve all configured RSS feed URLs.
@@ -98,7 +98,6 @@ A backend application built using **NestJS** and **MongoDB** that functions as a
 ### Articles Management
 - **GET /articles**: Retrieve articles with optional filters.
   - Query Params: `keyword`, `startDate`, `endDate`
-- **GET /articles/:id**: Retrieve a specific article by ID.
 
 ### Topic Extraction
 - Topics are automatically extracted when articles are fetched and stored.

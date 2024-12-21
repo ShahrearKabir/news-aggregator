@@ -6,7 +6,7 @@ import { FeedsService } from '../feeds/feeds.service';
 export class SchedulerService {
   constructor(private readonly feedsService: FeedsService) {}
 
-  @Cron(CronExpression.EVERY_6_HOURS) // Every hour
+  @Cron(CronExpression.EVERY_6_HOURS) // Every Six hour
   async handleCron() {
     await this.feedsService.fetchFeeds();
   }
