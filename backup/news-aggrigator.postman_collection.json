@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "1a2148ca-9571-4356-be6e-320dd8693bdd",
+		"name": "news-aggrigator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "8038379",
+		"_collection_link": "https://lively-desert-552765.postman.co/workspace/0bc29b2d-d286-453e-896f-14302d6241ad/collection/8038379-1a2148ca-9571-4356-be6e-320dd8693bdd?action=share&source=collection_link&creator=8038379"
+	},
+	"item": [
+		{
+			"name": "feeds",
+			"item": [
+				{
+					"name": "http://localhost:4301/api/v1/feeds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{news_rss_api_base_url}}/feeds"
+					},
+					"response": []
+				},
+				{
+					"name": "{{news_rss_api_base_url}}/feeds/fetch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{news_rss_api_base_url}}/feeds/fetch"
+					},
+					"response": []
+				},
+				{
+					"name": "{{news_rss_api_base_url}}/feeds",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://feeds.feedburner.com/TheAtlanticWire\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{news_rss_api_base_url}}/feeds"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "articles",
+			"item": [
+				{
+					"name": "{{news_rss_api_base_url}}/articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{news_rss_api_base_url}}/articles?keywords=artists,gyllenhaal&startDate=2017-02-26&endDate=2017-02-27",
+							"host": [
+								"{{news_rss_api_base_url}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "keywords",
+									"value": "artists,gyllenhaal"
+								},
+								{
+									"key": "startDate",
+									"value": "2017-02-26"
+								},
+								{
+									"key": "endDate",
+									"value": "2017-02-27"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "news_rss_api_base_url",
+			"value": "http://localhost:4301/api/v1"
+		}
+	]
+}
